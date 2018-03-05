@@ -25,7 +25,7 @@ module.exports = class Document extends Plugin
     @baseURI = @options.baseURI or baseURI
     @document = @options.document or document
 
-    this.getDocumentMetadata()
+    this.refreshMetadata()
 
 # returns the primary URI for the document being annotated
 
@@ -47,7 +47,7 @@ module.exports = class Document extends Plugin
   beforeAnnotationCreated: (annotation) =>
     annotation.document = @metadata
 
-  getDocumentMetadata: =>
+  refreshMetadata: =>
     @metadata = {}
 
     # first look for some common metadata types
